@@ -1,0 +1,191 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-12-28 02:58:37.145752",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_kgwm",
+  "amended_from",
+  "naming_series",
+  "quotation_to",
+  "lead",
+  "column_break_mggd",
+  "transaction_date",
+  "valid_till",
+  "column_break_vcje",
+  "order_type",
+  "section_break_lnyy",
+  "property_sell_order",
+  "sell_property",
+  "payment_details",
+  "section_break_tymt",
+  "property_rent_order",
+  "rent_property",
+  "rent_schedule"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_kgwm",
+   "fieldtype": "Section Break",
+   "label": "Quotations"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Property Quotation",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Series",
+   "no_copy": 1,
+   "options": "SAL-QTN-.YYYY.-",
+   "print_hide": 1,
+   "reqd": 1,
+   "set_only_once": 1
+  },
+  {
+   "fieldname": "column_break_mggd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Date",
+   "no_copy": 1,
+   "reqd": 1,
+   "search_index": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "order_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Order Type",
+   "options": "\nProperty Sell Order\nMaintenance Order\nRent Order",
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "default": "Lead",
+   "fieldname": "quotation_to",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Quotation To",
+   "options": "DocType",
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_vcje",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lead",
+   "fieldtype": "Link",
+   "label": "Lead",
+   "options": "Lead",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_lnyy",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "property_sell_order",
+   "fieldtype": "Heading",
+   "hidden": 1,
+   "label": "Property Sell Order"
+  },
+  {
+   "fieldname": "valid_till",
+   "fieldtype": "Date",
+   "label": "Valid Till"
+  },
+  {
+   "fieldname": "payment_details",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Payment Details",
+   "options": "Property Payment Details"
+  },
+  {
+   "bold": 1,
+   "fieldname": "sell_property",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "Property",
+   "options": "Property",
+   "print_hide": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_tymt",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "property_rent_order",
+   "fieldtype": "Heading",
+   "hidden": 1,
+   "label": "Property Rent Order"
+  },
+  {
+   "bold": 1,
+   "fieldname": "rent_property",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Property",
+   "options": "Property",
+   "print_hide": 1
+  },
+  {
+   "fieldname": "rent_schedule",
+   "fieldtype": "Table",
+   "hidden": 1,
+   "label": "Rent Schedule",
+   "options": "property payment schedule"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-12-28 21:28:02.880974",
+ "modified_by": "Administrator",
+ "module": "Property Management System",
+ "name": "Property Quotation",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

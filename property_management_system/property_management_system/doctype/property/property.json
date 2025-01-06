@@ -1,0 +1,117 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "prompt",
+ "creation": "2024-12-22 00:22:57.845450",
+ "description": "Property",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "property_type",
+  "total_units",
+  "property_owner",
+  "property_code",
+  "address",
+  "city",
+  "state",
+  "country",
+  "property_specification",
+  "area",
+  "furnished_status",
+  "age_of_property"
+ ],
+ "fields": [
+  {
+   "fieldname": "property_type",
+   "fieldtype": "Select",
+   "label": "Property type",
+   "options": "\nhome\nshop\nflat"
+  },
+  {
+   "fieldname": "property_code",
+   "fieldtype": "Data",
+   "label": "Property code"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country"
+  },
+  {
+   "fieldname": "property_specification",
+   "fieldtype": "Heading",
+   "label": "Property Specification"
+  },
+  {
+   "description": "(sq ft)",
+   "fieldname": "area",
+   "fieldtype": "Float",
+   "label": "Area "
+  },
+  {
+   "fieldname": "furnished_status",
+   "fieldtype": "Select",
+   "label": "Furnished Status",
+   "options": "Furnished\nSemi Furnished\nUnfurnished"
+  },
+  {
+   "fieldname": "age_of_property",
+   "fieldtype": "Int",
+   "label": "Age of property"
+  },
+  {
+   "fieldname": "property_owner",
+   "fieldtype": "Link",
+   "label": "Property Owner",
+   "options": "Owner"
+  },
+  {
+   "description": "The total number of units within the property(applicable only if Property Type = Home).",
+   "fieldname": "total_units",
+   "fieldtype": "Int",
+   "label": "Total Units"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-04 00:41:03.544006",
+ "modified_by": "Administrator",
+ "module": "Property Management System",
+ "name": "Property",
+ "naming_rule": "Set by user",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

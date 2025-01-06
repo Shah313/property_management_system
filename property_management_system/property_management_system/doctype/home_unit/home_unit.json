@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "autoname": "autoincrement",
+ "creation": "2025-01-02 03:13:09.019651",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "basic_information_section",
+  "unit_name",
+  "property",
+  "financial_details",
+  "rent_value",
+  "market_value",
+  "column_break_zctk",
+  "unit_details",
+  "floor_number",
+  "number_of_bedrooms",
+  "number_of_bathrooms",
+  "unit_occupancy_status"
+ ],
+ "fields": [
+  {
+   "fieldname": "basic_information_section",
+   "fieldtype": "Section Break",
+   "label": "Basic Information",
+   "max_height": "8px"
+  },
+  {
+   "description": "The name or identifier of the unit (e.g., \"Ground Floor\", \"First Floor\").",
+   "fieldname": "unit_name",
+   "fieldtype": "Data",
+   "label": "Unit Name"
+  },
+  {
+   "fieldname": "financial_details",
+   "fieldtype": "Heading",
+   "label": "Financial Details"
+  },
+  {
+   "fieldname": "rent_value",
+   "fieldtype": "Currency",
+   "label": "Rent Value"
+  },
+  {
+   "fieldname": "market_value",
+   "fieldtype": "Currency",
+   "label": "Market Value"
+  },
+  {
+   "fieldname": "column_break_zctk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "unit_details",
+   "fieldtype": "Heading",
+   "label": "Unit Details"
+  },
+  {
+   "description": "The floor where the unit is located (e.g., 0 for Ground Floor, 1 for First Floor).",
+   "fieldname": "floor_number",
+   "fieldtype": "Int",
+   "label": "Floor Number"
+  },
+  {
+   "fieldname": "number_of_bedrooms",
+   "fieldtype": "Data",
+   "label": "Number of Bedrooms"
+  },
+  {
+   "fieldname": "number_of_bathrooms",
+   "fieldtype": "Data",
+   "label": "Number of Bathrooms"
+  },
+  {
+   "fieldname": "unit_occupancy_status",
+   "fieldtype": "Select",
+   "label": "Unit Occupancy Status (For Rent)",
+   "options": "\nVacant\nOccupied"
+  },
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "label": "Property",
+   "options": "Property"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-01-05 03:36:26.390422",
+ "modified_by": "Administrator",
+ "module": "Property Management System",
+ "name": "Home Unit",
+ "naming_rule": "Autoincrement",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

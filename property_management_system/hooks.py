@@ -4,6 +4,34 @@ app_publisher = "Zikpro Ltd"
 app_description = "Property Management System"
 app_email = "info@zikpro.com"
 app_license = "mit"
+
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            [
+                "dt", "=", "Quotation"
+            ]
+        ]
+    }
+]
+
+fixtures = [
+    {
+        "doctype": "Custom Field",
+        "filters": [
+            [
+                "dt", "=", "Sales Order"
+            ]
+        ]
+    }
+]
+
+
+
+
+
+
 # required_apps = []
 
 # Includes in <head>
@@ -28,7 +56,10 @@ app_license = "mit"
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+    "Quotation": ["public/js/quotation_order_type.js", "public/js/quotation.js"]
+}
+
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
@@ -118,6 +149,14 @@ app_license = "mit"
 # 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
 
+
+override_doctype_class = {
+    "Quotation": "property_management_system.property_management_system.custom_doctype.quotation.CustomQuotation",
+}
+
+
+
+
 # Document Events
 # ---------------
 # Hook on document methods and events
@@ -129,6 +168,9 @@ app_license = "mit"
 # 		"on_trash": "method"
 # 	}
 # }
+
+
+
 
 # Scheduled Tasks
 # ---------------
