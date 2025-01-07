@@ -5,27 +5,6 @@ app_description = "Property Management System"
 app_email = "info@zikpro.com"
 app_license = "mit"
 
-fixtures = [
-    {
-        "doctype": "Custom Field",
-        "filters": [
-            [
-                "dt", "=", "Quotation"
-            ]
-        ]
-    }
-]
-
-fixtures = [
-    {
-        "doctype": "Custom Field",
-        "filters": [
-            [
-                "dt", "=", "Sales Order"
-            ]
-        ]
-    }
-]
 
 
 
@@ -56,9 +35,8 @@ fixtures = [
 # page_js = {"page" : "public/js/file.js"}
 
 # include js in doctype views
-doctype_js = {
-    "Quotation": ["public/js/quotation_order_type.js", "public/js/quotation.js"]
-}
+
+
 
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
@@ -150,9 +128,6 @@ doctype_js = {
 # }
 
 
-override_doctype_class = {
-    "Quotation": "property_management_system.property_management_system.custom_doctype.quotation.CustomQuotation",
-}
 
 
 
