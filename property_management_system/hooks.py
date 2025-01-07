@@ -79,6 +79,9 @@ app_license = "mit"
 # before_install = "property_management_system.install.before_install"
 # after_install = "property_management_system.install.after_install"
 
+after_install = "property_management_system.setup.setup_custom_fields"
+
+
 # Uninstallation
 # ------------
 
