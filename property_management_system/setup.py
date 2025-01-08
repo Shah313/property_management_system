@@ -8,7 +8,7 @@ def setup_custom_fields():
                 "label": "Property Name",
                 "fieldtype": "Link",
                 "options": "Property",
-                "insert_after": "series",
+                "insert_after": "Series",
                 "reqd": 1,  
             },
             {
@@ -16,7 +16,7 @@ def setup_custom_fields():
                 "label": "Property Unit",
                 "fieldtype": "Link",
                 "options": "Home Unit",
-                "insert_after": "custom_property_name",
+                "insert_after": "Property Name",
                 "reqd": 1,  
             },
         ],
@@ -26,7 +26,7 @@ def setup_custom_fields():
                 "label": "Property Name",
                 "fieldtype": "Link",
                 "options": "Property",
-                "insert_after": "series",
+                "insert_after": "Series",
                 "reqd": 1,  
             },
             {
@@ -34,7 +34,7 @@ def setup_custom_fields():
                 "label": "Property Unit",
                 "fieldtype": "Link",
                 "options": "Home Unit",
-                "insert_after": "custom_property_name",
+                "insert_after": "Property Name",
                 "reqd": 1,  
             },
         ]
