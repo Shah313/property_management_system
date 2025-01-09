@@ -8,7 +8,7 @@ def setup_custom_fields():
                 "label": "Property Name",
                 "fieldtype": "Link",
                 "options": "Property",
-                "insert_after": "Series",
+                "insert_after": "naming_series",  
                 "reqd": 1,  
             },
             {
@@ -16,16 +16,16 @@ def setup_custom_fields():
                 "label": "Property Unit",
                 "fieldtype": "Link",
                 "options": "Home Unit",
-                "insert_after": "Property Name",
+                "insert_after": "custom_property_name", 
                 "reqd": 1,  
             },
-               {
+            {
                 "fieldname": "custom_property_owner",
                 "label": "Property Owner",
                 "fieldtype": "Link",
                 "options": "Owner",
-                "insert_after": "Property Unit",
-                "reqd": 1,  
+                "insert_after": "custom_property_unit",  
+                "reqd": 1,
             },
         ],
         "Sales Order": [
@@ -34,7 +34,7 @@ def setup_custom_fields():
                 "label": "Property Name",
                 "fieldtype": "Link",
                 "options": "Property",
-                "insert_after": "Series",
+                "insert_after": "naming_series",
                 "reqd": 1,  
             },
             {
@@ -42,7 +42,7 @@ def setup_custom_fields():
                 "label": "Property Unit",
                 "fieldtype": "Link",
                 "options": "Home Unit",
-                "insert_after": "Property Name",
+                "insert_after": "custom_property_name",
                 "reqd": 1,  
             },
         ]
