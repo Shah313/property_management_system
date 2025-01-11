@@ -3,7 +3,7 @@ import frappe
 def execute():
     custom_fields = [
         {
-            "dt": "Quotation",  
+            "dt": "Sales Order",  
             "fieldname": "property",
             "label": "Property",
             "fieldtype": "Link",
@@ -11,7 +11,7 @@ def execute():
             "insert_after": "naming_series",  
         },
         {
-            "dt": "Quotation",  
+            "dt": "Sales Order",  
             "fieldname": "property_unit",
             "label": "Property Unit",
             "fieldtype": "Link",
@@ -23,9 +23,9 @@ def execute():
     for field in custom_fields:
         create_custom_field(field)
 
-    frappe.clear_cache(doctype="Quotation")
+    frappe.clear_cache(doctype="Sales Order")
 
-def create_quotation_custom_fields(field):
+def create_sales_order_custom_fields(field):
     """Helper function to create a custom field if it doesn't exist."""
     if not frappe.db.exists("Custom Field", {"dt": field["dt"], "fieldname": field["fieldname"]}):
         custom_field = frappe.new_doc("Custom Field")

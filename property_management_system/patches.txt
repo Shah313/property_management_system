@@ -5,3 +5,5 @@
 [post_model_sync]
 property_management_system.patches.create_order_type_custom_fields
 property_management_system.patches.create_quotation_custom_fields
+property_management_system.patches.create_sales_order_custom_fields
+
