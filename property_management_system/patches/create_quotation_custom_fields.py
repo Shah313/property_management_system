@@ -21,7 +21,7 @@ def execute():
     ]
 
     for field in custom_fields:
-        create_custom_field(field)
+        create_quotation_custom_fields(field)
 
     frappe.clear_cache(doctype="Quotation")
 
