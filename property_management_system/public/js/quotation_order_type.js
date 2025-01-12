@@ -1,7 +1,7 @@
 
 frappe.ui.form.on('Quotation', {
     order_type: function (frm) {
-        // Clear existing rows in the child table
+        
         frm.clear_table("items");
 
         if (frm.doc.order_type === "Property Sell") {
@@ -55,7 +55,7 @@ frappe.ui.form.on('Quotation', {
                 }
             });
         } else {
-            // For other order types, show an empty child table
+
             frm.refresh_field("items");
         }
     }

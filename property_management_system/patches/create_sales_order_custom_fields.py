@@ -4,19 +4,19 @@ def execute():
     custom_fields = [
         {
             "dt": "Sales Order",  
-            "fieldname": "property",
-            "label": "Property",
+            "fieldname": "property_name",
+            "label": "Property Name",
             "fieldtype": "Link",
             "options": "Property",
             "insert_after": "naming_series",  
         },
         {
             "dt": "Sales Order",  
-            "fieldname": "property_unit",
+            "fieldname": "property_units",
             "label": "Property Unit",
             "fieldtype": "Link",
             "options": "Home Unit",
-            "insert_after": "property",  
+            "insert_after": "property_name",  
         },
     ]
 
