@@ -18,6 +18,22 @@ def execute():
             "options": "Home Unit",
             "insert_after": "property_name",  
         },
+        {
+            "dt": "Sales Order",  
+            "fieldname": "monthly_date",
+            "label": "Monthly Payment Date start",
+            "fieldtype": "Date",
+            "insert_after": "order_type",
+        
+        },
+        {
+            "dt": "Sales Order",  
+            "fieldname": "quarterly_date",
+            "label": "Quarterly Payment Date start",
+            "fieldtype": "Date",
+            "insert_after": "monthly_date",
+
+        },
     ]
 
     for field in custom_fields:

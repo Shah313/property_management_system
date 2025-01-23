@@ -1,7 +1,6 @@
 frappe.ui.form.on('Quotation', {
     on_submit(frm) {
-        
-        if (frm.doc.property_name && frm.doc.property_units) {
+        if (frm.doc.property_name && frm.doc.property_units && frm.doc.order_type) {
             frappe.call({
                 method: "frappe.client.insert",
                 args: {
@@ -12,6 +11,7 @@ frappe.ui.form.on('Quotation', {
                         items: frm.doc.items,
                         property_name: frm.doc.property_name, 
                         property_units: frm.doc.property_units, 
+                        order_type: frm.doc.order_type,
                     }
                 },
                 callback: function(response) {
@@ -20,6 +20,8 @@ frappe.ui.form.on('Quotation', {
                     }
                 }
             });
+        } else {
+            frappe.msgprint("Please fill all mandatory fields in the Quotation before submission.");
         }
     }
 });

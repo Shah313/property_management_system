@@ -1,5 +1,5 @@
 
-frappe.ui.form.on('Quotation', {
+frappe.ui.form.on('Quotation',{
     order_type: function (frm) {
         
         frm.clear_table("items");

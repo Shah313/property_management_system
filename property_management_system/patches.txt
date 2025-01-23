@@ -7,4 +7,6 @@ property_management_system.patches.create_order_type_custom_fields
 property_management_system.patches.quotation_custom_fields
 property_management_system.patches.create_sales_order_custom_fields
 property_management_system.patches.create_quotation_item_data
+property_management_system.patches.sales_order_type_option
+
 
