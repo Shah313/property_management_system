@@ -38,8 +38,10 @@ app_license = "mit"
 
 doctype_js = {
     "Quotation": ["public/js/quotation_order_type.js", "public/js/quotation.js"],
-     "Sales Order": ["public/js/sales_order.js"]
+     "Sales Order": ["public/js/sales_order.js", "public/js/sales_order_after_submission.js"]
 }
+
+
 
 
 
@@ -123,6 +125,7 @@ doctype_js = {
 # permission_query_conditions = {
 # 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
 # }
+
 #
 # has_permission = {
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
