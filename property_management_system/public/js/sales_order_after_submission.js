@@ -9,17 +9,17 @@ frappe.ui.form.on('Sales Order', {
 });
 
 function show_payment_popup(frm) {
-    // Fetch data to populate the dialog
     const items = frm.doc.items.map(row => ({
+        selected: 0, // Custom checkbox for selection
         item_code: row.item_code,
-        qty: row.qty - row.delivered_qty, 
-        delivery_date: row.delivery_date, 
-        amount: row.amount 
+        qty: Math.max(0, row.qty - (row.delivered_qty || 0)),
+        delivery_date: row.delivery_date,
+        amount: row.amount
     }));
 
-    // Create a custom dialog
     const dialog = new frappe.ui.Dialog({
-        title: __('Select Items for Payment'),
+        title: 'Select Items for Payment',
+        size: 'large',
         fields: [
             {
                 fieldname: 'item_table',
@@ -27,83 +27,81 @@ function show_payment_popup(frm) {
                 label: 'Select Items',
                 cannot_add_rows: true,
                 in_place_edit: true,
-                reqd: 1,
                 data: items,
+                get_data: () => items,
                 fields: [
                     {
+                        fieldtype: 'Check', // Custom checkbox
                         fieldname: 'selected',
-                        label: '',
-                        fieldtype: 'Check',
-                        default: 1 
+                        label: 'Select Items',
+                        in_list_view: 1
                     },
                     {
+                        fieldtype: 'Data',
                         fieldname: 'item_code',
                         label: 'Item Code',
-                        fieldtype: 'Data',
-                        read_only: 1,
                         in_list_view: 1
                     },
-                   
                     {
+                        fieldtype: 'Float',
                         fieldname: 'qty',
                         label: 'Qty',
-                        fieldtype: 'Float',
-                        read_only: 1,
                         in_list_view: 1
                     },
                     {
+                        fieldtype: 'Date',
                         fieldname: 'delivery_date',
                         label: 'Delivery Date',
-                        fieldtype: 'Date',
-                        read_only: 1,
                         in_list_view: 1
                     },
                     {
+                        fieldtype: 'Currency',
                         fieldname: 'amount',
                         label: 'Amount',
-                        fieldtype: 'Currency',
-                        read_only: 1,
                         in_list_view: 1
                     }
+                  
                 ]
-            },
-           
+            }
         ],
-        primary_action_label: __('Payment'),
+        primary_action_label: 'Payment',
         primary_action: function () {
-            // Get selected items
             const selectedItems = dialog.get_value('item_table').filter(row => row.selected);
-
             if (!selectedItems.length) {
-                frappe.msgprint(__('Please select at least one item for payment.'));
+                frappe.msgprint(__('Please select at least one item.'));
                 return;
             }
-
-            frappe.call({
-                method: 'frappe.client.insert',
-                args: {
-                    doc: {
-                        doctype: 'Payment',
-                        sales_order: frm.doc.name, 
-                        items: selectedItems.map(item => ({
-                            item_code: item.item_code,
-                            qty: item.qty,
-                            amount: item.amount,
-                            delivery_date: item.delivery_date
-                        }))
-                    }
-                },
-                callback: function (r) {
-                    if (r.message) {
-                        frappe.msgprint(__('Payment record created successfully.'));
-                        dialog.hide();
-                        frappe.set_route('Form', 'Payment', r.message.name); 
-                    }
-                }
+        
+            
+            const totalAllocated = selectedItems.reduce((sum, item) => sum + item.amount, 0);
+        
+            
+            const defaultPaidToAccount = frappe.defaults.get_default("company_default_bank_account");
+        
+            frappe.model.with_doctype('Payment Entry', () => {
+                const paymentEntry = frappe.model.get_new_doc('Payment Entry');
+                
+        
+                paymentEntry.payment_type = 'Receive';
+                paymentEntry.party_type = 'Customer';
+                paymentEntry.party = frm.doc.customer;
+                paymentEntry.paid_amount = totalAllocated; 
+                paymentEntry.paid_to = defaultPaidToAccount; 
+                
+             
+                paymentEntry.references = [{
+                    reference_doctype: 'Sales Order',
+                    reference_name: frm.doc.name,
+                    total_amount: frm.doc.grand_total,
+                    outstanding_amount: frm.doc.outstanding_amount,
+                    allocated_amount: totalAllocated
+                }];
+        
+                frappe.set_route('Form', 'Payment Entry', paymentEntry.name);
+                dialog.hide();
             });
         }
     });
 
-    
     dialog.show();
 }
